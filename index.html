@@ -1,179 +1,301 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contemelia · 烈星氷刃</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="default">
+  <div class="theme-background-layer theme-background-layer-winter"></div>
+  <div class="theme-background-layer theme-background-layer-summer"></div>
+  <div class="theme-background-layer theme-background-layer-minimal"></div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="custom-cursor-glow" id="customCursorGlow"></div>
+  <div class="custom-cursor-shape" id="customCursorShape"></div>
 
+  <nav class="top-navigation">
+    <a class="top-navigation-logo" href="#" aria-label="Contemelia">
+      <span class="top-navigation-logo-stack" aria-hidden="true">
+        <span class="top-navigation-logo-outer-layer"></span>
+        <span class="top-navigation-logo-inner-layer"></span>
+      </span>
+    </a>
+    <ul class="top-navigation-link-list">
+      <li><a href="#skills-section">Skills</a></li>
+      <li><a href="#experience-section">Experience</a></li>
+      <li><a href="#projects-section">Projects</a></li>
+      <li><a href="#hobbies-section">Hobbies</a></li>
+      <li><a href="#education-section">Education</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+      <li><a href="https://github.com/Contemelia" target="_blank" rel="noopener noreferrer">GutHib</a></li>
+    </ul>
+  </nav>
 
+  <header class="hero-section">
+    <p class="hero-section-tagline">// AI &amp; CS Engineer · Cybersecurity · Data Science</p>
 
-    <style>
+    <h1 class="hero-section-name">
+      <span class="hero-line-primary text-glitch-effect" data-text="Contemel">Contemel</span><br>
+      <span class="hero-line-secondary">.ia</span>
+    </h1>
 
-        body
-        {
-            background-color: #080113;
-            display: block;
-            justify-content: center;
-            align-content: center;
-            height: 100vh;
-        }
+    <div class="hero-section-identity-list">
+      <span class="hero-section-identity-item"><span>▸</span>Null Void</span>
+      <span class="hero-section-identity-item"><span>▸</span>UTC +09:00</span>
+      <span class="hero-section-identity-item"><span>▸</span>MSc · AI for Industrial Application</span>
+    </div>
 
-        footer
-        {
-            font-family: 'Nirmala UI';
-            font-size: 70%;
-            color: #322349;
-            position: absolute;
-            bottom: 5%;
-            transition: ease-in-out 0.5s;
-        }
-        footer:hover
-        {
-            color: #574a6b;
-            transition: ease-in-out 0.5s;
-        }
+    <p class="hero-section-description">
+      Building things that people might give a shi about. Currently grinding through a Masters in AI. I like code and design. If you wanna talk tech and xi, reach out.
+    </p>
 
+    <div class="hero-section-call-to-action-group">
+      <a href="#projects-section" class="action-button action-button-primary">GG No Heals</a>
+      <a href="mailto:contemelium@gmail.com" class="action-button action-button-ghost">Get to Touch Me</a>
+      <a href="https://github.com/Contemelia" target="_blank" rel="noopener noreferrer" class="action-button action-button-secondary">GutHib</a>
+    </div>
 
-        @keyframes errorLogoOuterRotation
-        {
-            0%
-            {
-                transform: rotate(0deg);
-            }
-            
-            80%
-            {
-                transform: rotate(360deg);
-            }
+    <div class="verification-access-panel verification-access-panel-temporary-disabled" aria-disabled="true">
+      <span class="verification-access-label">// </span>
+      <span class="verification-access-label" id="verificationLabelText">// if you are here from the resume and would like to confirm authenticity, this one is for you :)</span>
+      <span class="verification-access-label">// </span>
+      <div class="verification-access-input-row" id="verificationInputRow">
+        <input
+          class="verification-access-input-field"
+          id="verificationInputField"
+          type="password"
+          placeholder="Key phrase goes here..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="verification-access-submit-button" id="verificationSubmitButton" type="button">Unlock</button>
+      </div>
+      <div class="verification-access-output" id="verificationOutputPanel">
+        <div class="verification-output-grid">
+          <span class="verification-output-type">Name</span>
+          <span class="verification-output-colon">:</span>
+          <span class="verification-output-value" id="revealedFullName"></span>
 
-            100%
-            {
-                transform: rotate(360deg);
-            }
-        }
+          <span class="verification-output-type">Email</span>
+          <span class="verification-output-colon">:</span>
+          <span class="verification-output-value" id="revealedEmailAddress"></span>
 
-        @keyframes errorLogoInnerRotation
-        {
-            from
-            {
-                transform: rotate(0deg);
-            }
+          <span class="verification-output-type">Phone</span>
+          <span class="verification-output-colon">:</span>
+          <span class="verification-output-value" id="revealedPrimaryPhone"></span>
 
-            to
-            {
-                transform: rotate(-360deg);
-            }
-        }
+          <span class="verification-output-type"></span>
+          <span class="verification-output-colon"></span>
+          <span class="verification-output-value" id="revealedSecondaryPhone"></span>
 
-        @keyframes errorLogoOuterColor
-        {
-            0%
-            {
-                fill: rgb(255, 75, 0);
-                opacity: 90%;
-            }
+          <span class="verification-output-type"></span>
+          <span class="verification-output-colon"></span>
+          <span class="verification-output-value" id="revealedThirdPhone"></span>
 
-            50%
-            {
-                fill: rgb(255, 245, 245);
-                opacity: 50%;
-            }
+          <span class="verification-output-type"></span>
+          <span class="verification-output-colon"></span>
+          <span class="verification-output-value" id="revealedFourthPhone"></span>
+        </div>
+      </div>
+    </div>
 
-            100%
-            {
-                fill: rgb(255, 75, 0);
-                opacity: 90%;
-            }
-        }
+    <div class="hero-scroll-hint">
+      <div class="hero-scroll-hint-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </header>
 
+  <section id="skills-section">
+    <div class="content-wrapper">
+      <div class="section-divider">
+        <div class="section-divider-line"></div>
+        <span class="section-divider-label">01 · Skillset</span>
+        <div class="section-divider-line"></div>
+      </div>
+      <h2 class="section-title">What I <span class="section-title-accent-primary">work with</span></h2>
+      <div class="skill-card-grid">
+        <div class="skill-card"><div class="skill-card-category">Languages</div><div class="skill-card-name">Programming</div><div class="skill-tag-list"><span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Bash</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Domain</div><div class="skill-card-name">Data Science &amp; AI</div><div class="skill-tag-list"><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">NLP</span><span class="skill-tag">TF-IDF</span><span class="skill-tag">OpenCV</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Domain</div><div class="skill-card-name">Cybersecurity</div><div class="skill-tag-list"><span class="skill-tag">HashiCorp Vault</span><span class="skill-tag">PKI / TLS</span><span class="skill-tag">DSL Design</span><span class="skill-tag">Logstash</span><span class="skill-tag">CEH</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">GUI / Frameworks</div><div class="skill-card-name">Desktop &amp; Web</div><div class="skill-tag-list"><span class="skill-tag">PyQt5/6</span><span class="skill-tag">PySide</span><span class="skill-tag">Tkinter</span><span class="skill-tag">Node.js</span><span class="skill-tag">HTML/CSS</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Infrastructure</div><div class="skill-card-name">Cloud &amp; DevOps</div><div class="skill-tag-list"><span class="skill-tag">Docker</span><span class="skill-tag">Nginx</span><span class="skill-tag">personaku</span><span class="skill-tag">GitHub Pages</span><span class="skill-tag">ElasticSearch</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Storage</div><div class="skill-card-name">Databases</div><div class="skill-tag-list"><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Oracle</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Creative</div><div class="skill-card-name">Design Tools</div><div class="skill-tag-list"><span class="skill-tag">Photoshop</span><span class="skill-tag">Illustrator</span><span class="skill-tag">Figma</span><span class="skill-tag">InDesign</span><span class="skill-tag">Canva</span><span class="skill-tag">AutoCAD</span></div></div>
+        <div class="skill-card"><div class="skill-card-category">Systems</div><div class="skill-card-name">Operating Systems</div><div class="skill-tag-list"><span class="skill-tag">Ubuntu</span><span class="skill-tag">Kali</span><span class="skill-tag">ParrotOS</span><span class="skill-tag">Windows</span></div></div>
+      </div>
+    </div>
+  </section>
 
-        .unselectable
-        {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
+  <section id="experience-section">
+    <div class="content-wrapper">
+      <div class="section-divider"><div class="section-divider-line"></div><span class="section-divider-label">02 · Experience</span><div class="section-divider-line"></div></div>
+      <h2 class="section-title">Where I have <span class="section-title-accent-secondary">worked</span></h2>
+      <div class="experience-card-list">
         
-        .logo-inner
-        {
-            width: 50%;
-            height: 50%;
-            position: absolute;
-            top: 25%;
-            left: 25%;
-            transform-origin: center;
-        }
+        <article class="experience-card-row">
+          <div>
+            <div class="experience-title">Programming Instructor <span class="experience-role-type">· Student Staff</span></div>
+            <div class="experience-organization">East Bavarian University of Applied Sciences Amberg-Weiden</div>
+            <ul class="experience-description-list">
+              <li>Delivered assistance during Python programming lectures to undergraduate students.</li>
+              <li>Assisted students in understanding various complex programming concepts.</li>
+              <li>Guided student teams through their final projects, with code reviews.</li>
+              <li>Resolved complex course queries by adapting the explanation to varied student backgrounds and skill levels.</li>
+              <li>Designed engaging learning exercises to improve student comprehension and participation.</li>
+              <li>Collaborated with course coordinators to align teaching content with the semester curriculum.</li>
+            </ul>
+          </div>
+          <div class="experience-metadata">
+            <div class="experience-date">November 2025<br>→ March 2026</div>
+            <div class="experience-location">Amberg<br>Germany</div>
+          </div>
+        </article>
+        <article class="experience-card-row">
+          <div>
+            <div class="experience-title">Python Developer <span class="experience-role-type">· Intern</span></div>
+            <div class="experience-organization">BroadBITS</div>
+            <ul class="experience-description-list">
+              <li>Developed Python scripts to improve the automated report generation process.</li>
+              <li>Newly developed scripts provided a 17% increase in resource use, with 34% increase in generation speed.</li>
+              <li>New additional features were added to increase visual appeal and content flavours.</li>
+              <li>Integrated said scripts into the pipeline and ensured smooth operations.</li>
+            </ul>
+          </div>
+          <div class="experience-metadata">
+            <div class="experience-date">August 2025<br>→ October 2025</div>
+            <div class="experience-location">Kuwait City<br>Kuwait</div>
+          </div>
+        </article>
+        <article class="experience-card-row">
+          <div>
+            <div class="experience-title">Python Developer <span class="experience-role-type">· Intern</span></div>
+            <div class="experience-organization">BroadBITS</div>
+            <ul class="experience-description-list">
+              <li>Developed Python scripts to automate fetching and updating reports within the OpExpert platform.</li>
+              <li>Designed and implemented a domain-specific language (DSL) for defining security rules.</li>
+              <li>Built an interpreter to transpile DSL definitions into executable Python code.</li>
+              <li>Ensured consistency for future development of the DSL.</li>
+              <li>Produced comprehensive documentation for the entire implementation and DSL to support further developments.</li>
+            </ul>
+          </div>
+          <div class="experience-metadata">
+            <div class="experience-date">January 2024<br>→ April 2024</div>
+            <div class="experience-location">Kuwait City<br>Kuwait</div>
+          </div>
+        </article>
+        <article class="experience-card-row">
+          <div>
+            <div class="experience-title">Cybersecurity Engineer <span class="experience-role-type">· Intern</span></div>
+            <div class="experience-organization">BroadBITS</div>
+            <ul class="experience-description-list">
+              <li>Managed secrets and orchestrated PKI certificate lifecycle using HashiCorp Vault.</li>
+              <li>Verified and deployed TLS certificates on Nginx hosting servers, ensuring service continuity.</li>
+              <li>Configured Logstash pipelines to filter and structure security-relevant log data.</li>
+              <li>Conducted sessions to educate co-workers on learnt knowledge.</li>
+            </ul>
+          </div>
+          <div class="experience-metadata">
+            <div class="experience-date">May 2023<br>→ Jul 2023</div>
+            <div class="experience-location">Kuwait City<br>Kuwait</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        .logo-outer
-        {
-            width: 100%;
-            height: 100%;
-            transform-origin: center;
-        }
+  <section id="projects-section">
+    <div class="content-wrapper">
+      <div class="section-divider"><div class="section-divider-line"></div><span class="section-divider-label">03 · Projects</span><div class="section-divider-line"></div></div>
+      <h2 class="section-title">Shi I have <span class="section-title-accent-primary">built</span></h2>
+      <div class="project-card-list">
+        <a class="project-card-row" href="https://github.com/Contemelia/Quantum-Circuit-Retriever" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">01</span><div><div class="project-title">Quantum Circuit Retriever</div><div class="project-description">NLP pipeline extracting quantum circuit diagrams from arXiv papers and building datasets for downstream NLP work. Hybrid TF-IDF + vision classifier achieves 94% precision across 26,907 papers.</div></div><span class="project-language-label">Python · NLP</span></a>
 
-        
-        #landing-error-logo-container
-        {
-            width: 5%;
-            height: auto;
-            position: relative;
-        }
+        <a class="project-card-row" href="https://chromewebstore.google.com/detail/ephemark/eiggeiegooealoihhlmenjgdndkenoce" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">02</span><div><div class="project-title">Ephemark</div><div class="project-description">Save pages temporarily with configurable expiry times (weeks, days, hours, minutes, seconds). Features real-time countdown timers, quick actions (extend, edit, delete), CSV export, dark/light themes with custom colors, and automatic cleanup of expired bookmarks. All data stored locally.</div></div><span class="project-language-label">Browser · Productivity</span></a>
 
-        #landing-error-message
-        {
-            width: auto;
-            height: fit-content;
-            position: relative;
-            padding-top: 2%;
-            color: rgb(140, 125, 150);
-            font-size: 100%;
-            display: flex;
-            justify-content: center;
-            transition: ease-in-out 0.5s;
-        }
-        #landing-error-message:hover
-        {
-            color: rgb(255, 75, 0);
-            transition: ease-in-out 0.5s;
-        }
+        <a class="project-card-row" href="https://github.com/Contemelia/Envyte" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">03</span><div><div class="project-title">Envyte</div><div class="project-description">Tiny helper to auto-load environment variables from .env files and run your commands or Python scripts with those variables available. Exposes a small Python API for reading env values safely.</div></div><span class="project-language-label">Python · DevOps</span></a>
 
-        #landing-error-logo-inner
-        {
-            animation: errorLogoInnerRotation 12s linear infinite;
-        }
+        <a class="project-card-row" href="https://github.com/Contemelia" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">04</span><div><div class="project-title">NORVA</div><div class="project-description">Cloud-breach data-leakage mitigation system. Sensitive data is AES-encrypted, fragmented, and distributed across multiple storage locations — rendering any leaked subset useless without the owner's key file.</div></div><span class="project-language-label">Python · Security</span></a>
 
-        #landing-error-logo-outer
-        {
-            animation: errorLogoOuterRotation 6s ease-in-out infinite, errorLogoOuterColor 1s ease-in-out infinite;
-        }
+        <a class="project-card-row" href="https://github.com/Contemelia/ScriptVAULT" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">05</span><div><div class="project-title">ScriptVAULT</div><div class="project-description">A curated collection of utility scripts and tools for common programming tasks and automation workflows. Currently on hold.</div></div><span class="project-language-label">Python · Utilities</span></a>
 
-    </style>
+        <a class="project-card-row" href="https://github.com/Contemelia/Quantum-Circuit-Retriever" target="_blank" rel="noopener noreferrer"><span class="project-sequence-number">06</span><div><div class="project-title">PrePTEL</div><div class="project-description">Quiz application that closely simulates the NPTEL (National Programme on Technology Enhanced Learning) examination environment — designed for extensibility and adaptable to any structured Q&amp;A material.</div></div><span class="project-language-label">Python · Education</span></a>
+      </div>
+    </div>
+  </section>
 
+  <section id="hobbies-section">
+    <div class="content-wrapper">
+      <div class="section-divider"><div class="section-divider-line"></div><span class="section-divider-label">04 · Hobbies</span><div class="section-divider-line"></div></div>
+      <h2 class="section-title">Some fyn <span class="section-title-accent-secondary">xi</span> I do</h2>
 
-
-    <body>
-        <div style="top: 45%; position: relative;">    
-            <div style="display: flex; justify-content: center;">
-                <div class="error-logo-container, unselectable" id="landing-error-logo-container">
-                    <img class="logo-inner" id="landing-error-logo-inner" src="Assets/SVG/logo-inner.svg">
-                    <img class="logo-outer" id="landing-error-logo-outer" src="Assets/SVG/logo-outer.svg"> 
-                </div>
+      <div class="hobby-card-container">
+        <div class="hobby-card-block">
+          <div class="hobby-card-header">
+            <div>
+              <div class="hobby-card-title">Xi I've Captured</div>
+              <div class="hobby-card-meta">GitHub Repository · Assets / Photographs</div>
             </div>
-            
-            <div class="unselectable" id="landing-error-message">
-                申し訳ありませんが、このウェブサイトは現在工事中です
-            </div>
+          </div>
+          <div class="photography-gallery-container" id="dynamicPhotographyGalleryContainer">
+            <div class="photography-gallery-status-message" id="dynamicPhotographyGalleryStatusMessage">Loading photographs from repository...</div>
+            <div class="photography-gallery-grid" id="dynamicPhotographyGalleryGrid"></div>
+          </div>
         </div>
 
-        <div style="display: flex; justify-content: center;">
-            <footer class="unselectable">
-                Contemelia | Copyright 2024
-            </footer>
-        </div>
-    </body>
+      </div>
+    </div>
+  </section>
 
+  <section id="education-section">
+    <div class="content-wrapper">
+      <div class="section-divider"><div class="section-divider-line"></div><span class="section-divider-label">05 · Education</span><div class="section-divider-line"></div></div>
+      <h2 class="section-title">Where I <span class="section-title-accent-tertiary">learnt</span> my shi</h2>
+      <div class="education-card-grid">
+        <div class="education-card"><div class="education-specialization">MSc · EQF Level 7</div><div class="education-degree">Artificial Intelligence for Industrial Application</div><div class="education-date">Mar 2025 → Present</div></div>
+        <div class="education-card"><div class="education-specialization">B.Tech · EQF Level 6 · Specialization: Data Science</div><div class="education-degree">Computer Science &amp; Engineering</div><div class="education-date">Sep 2020 → May 2024</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-section">
+    <div class="content-wrapper">
+      <div class="section-divider"><div class="section-divider-line"></div><span class="section-divider-label">06 · Contact</span><div class="section-divider-line"></div></div>
+      <h2 class="section-title">Get to <span class="section-title-accent-primary">Touch</span> Me</h2>
+      <div class="contact-information-grid">
+        <div class="contact-information-block">
+          <h3>// Know me as</h3>
+          <p>Too lazy.. imma fill this up later... stay tuned tho</p>
+          <br>
+          <p class="contact-email-inline">contemelium@gmail.com</p>
+        </div>
+        <div class="contact-information-block">
+          <h3>// Find me at</h3>
+          <div class="social-link-list">
+            <a class="social-link-item" href="https://github.com/Contemelia" target="_blank" rel="noopener noreferrer"><span class="social-link-dot"></span>GitHub · github.com/Contemelia</a>
+            <a class="social-link-item" href="https://www.instagram.com/contemel.ia/" target="_blank" rel="noopener noreferrer"><span class="social-link-dot"></span>Instagram · contemel.ia</a>
+            <a class="social-link-item" href="https://twitch.tv/contemelia" target="_blank" rel="noopener noreferrer"><span class="social-link-dot"></span>Twitch · contemelia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span class="page-footer-left">© 2026 Contemelia · 烈星氷刃</span>
+    <span class="page-footer-right">contemelia.github.io</span>
+  </footer>
+
+  <div class="full-view-photo-modal" id="fullViewPhotoModal" aria-hidden="true">
+    <button class="full-view-photo-modal-close-button" id="fullViewPhotoModalCloseButton" type="button" aria-label="Close full photo view">Close</button>
+    <div class="full-view-photo-modal-content" id="fullViewPhotoModalContent">
+      <img class="full-view-photo-modal-image" id="fullViewPhotoModalImage" alt="Selected photography full view">
+      <div class="full-view-photo-modal-information" id="fullViewPhotoModalInformation"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
